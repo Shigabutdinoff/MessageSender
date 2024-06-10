@@ -1,0 +1,22 @@
+{
+    "name": "shigabutdinoff/message-sender",
+    "description": "A simple MessageSender implementing the API of chat services",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Shigabutdinoff\\MessageSender\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "shigabutdinoff",
+            "email": "shigabutdinovbr@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
