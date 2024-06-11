@@ -2,6 +2,7 @@
 
 namespace Shigabutdinoff\MessageSender;
 
+use Illuminate\Mail\SentMessage;
 use Illuminate\Support\Facades\Mail;
 use Shigabutdinoff\MessageSender\mts\Client;
 
@@ -111,11 +112,19 @@ class SendMessage
         }
     }
 
-    public static function mail($to, $subject, $text)
+    /**
+     * Sends an email using the provided parameters.
+     *
+     * @param string $to The recipient's email address.
+     * @param string $subject The subject of the email.
+     * @param string $text The content of the email.
+     * @return string The debug information for the email sending process.
+     */
+    public static function mail(string $to, string $subject, string $text)
     {
-        return Mail::raw($text, function ($message) use ($to, $subject) {
+        return (Mail::raw($text, function ($message) use ($to, $subject) {
             $message->to($to)
                 ->subject($subject);
-        });
+        })->getDebug());
     }
 }
