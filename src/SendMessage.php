@@ -2,6 +2,7 @@
 
 namespace Shigabutdinoff\MessageSender;
 
+use Illuminate\Support\Facades\Mail;
 use Shigabutdinoff\MessageSender\mts\Client;
 
 class SendMessage
@@ -108,5 +109,13 @@ class SendMessage
         } else {
             return $id;
         }
+    }
+
+    public static function mail($to, $subject, $text)
+    {
+        return Mail::raw($text, function ($message) use ($to, $subject) {
+            $message->to($to)
+                ->subject($subject);
+        });
     }
 }
