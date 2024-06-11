@@ -17,6 +17,7 @@
     "minimum-stability": "dev",
     "require": {
         "ext-curl": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "laravel/framework": ">=v11.10.0"
     }
 }
